@@ -1,0 +1,14 @@
+Package: armap
+Type: Package
+Title: Map data and functions
+Version: 0.1.0
+Author@R: person("Refik", "Turkeli", email = "refikt@audio.com.tr",
+    "role" = c("aut", "cre"))
+Description: Map data for Turkey and useful functions for working on map
+    polygons.
+License: Private, only used within Audio Elektronik A.S. Turkey
+LazyData: TRUE
+RoxygenNote: 5.0.1
+Imports:
+  maptools
+Suggests: testthat
