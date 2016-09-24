@@ -10,7 +10,7 @@ add_point_to_polygons <- function(map) {
   point_data <- dplyr::bind_rows(
     lapply(map@polygons,
            function(p) {
-             data.frame(lat = p@labpt[1], lon = p@labpt[2])
+             data.frame(lng = p@labpt[1], lat = p@labpt[2])
            }
     ))
 
