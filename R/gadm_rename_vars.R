@@ -31,8 +31,7 @@ gadm_city_rename <- tibble::frame_data(
   "Zinguldak ",		"Zonguldak     "
 ) %>%
   arutil::make_frame_utf8() %>%
-  dplyr::mutate_all(dplyr::funs(trimws(.))) %>%
-  {setNames(.$tuik_city, .$gadm_city)}
+  dplyr::mutate_all(dplyr::funs(trimws(.)))
 
 #' Renaming town names in gadm data
 #'
