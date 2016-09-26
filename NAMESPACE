@@ -2,6 +2,8 @@
 
 export(add_point_to_polygons)
 export(clean_gadm)
+export(gadm_town_parent)
+export(gadm_town_parent_self_children)
 export(get_map)
 export(merge_region)
 importFrom(dplyr,"%>%")

@@ -4,6 +4,8 @@
 #' there are divided into two or more in reality. This frame describes which
 #' towns that are available from tuik are part of which towns
 #' available in gadm data.
+#'
+#' @export
 gadm_town_parent <- tibble::frame_data(
   ~city          ,  ~tuik_town    , ~gadm_parent,
   "Adana        ",	"Çukurova    ",	"Seyhan    ",
@@ -63,3 +65,25 @@ gadm_town_parent <- tibble::frame_data(
 ) %>%
   dplyr::mutate_all(dplyr::funs(trimws(.))) %>%
   arutil::make_frame_utf8()
+
+#' Town parent data extended with town itself as child
+#'
+#' \code{\link{gadm_town_parent}} data attaches tuik towns to gadm towns.
+#' However, some of those parents are themselves tuik towns. This function
+#' adds those towns to the \code{gadm_town_parent} as children of themselves.
+#'
+#' @export
+gadm_town_parent_self_children <- function() {
+  # Getting parent towns that are themselves tuik towns
+  self_parent <- gadm_town_parent %>%
+    dplyr::distinct(city, gadm_parent) %>%
+    dplyr::inner_join(artuik::tuik_towns,
+                      by = c("city", "gadm_parent" = "town"))
+
+  # Adding those towns as children of themselves
+  gadm_town_parent %>%
+    dplyr::bind_rows({
+      self_parent %>%
+        dplyr::mutate(tuik_town = gadm_parent)
+    })
+}
