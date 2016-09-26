@@ -10,5 +10,6 @@
 #'
 #' Each variable is a \code{\link[sp]{SpatialPolygonsDataFrame}}.
 #'
-#' @source \url{http://www.gadm.org/country} - downloaded for Turkey
+#' @source \url{http://www.gadm.org/country} - downloaded for Turkey.
+#'    Check \code{\link{clean_gadm}} function for cleaning of the data.
 "gadm_map"

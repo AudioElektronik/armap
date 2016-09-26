@@ -4,9 +4,10 @@
 \name{gadm_map}
 \alias{gadm_map}
 \title{City apartment sales of Turkey}
-\format{An object of class \code{list} of length 3.}
+\format{An object of class \code{SpatialPolygonsDataFrame} with 928 rows and 15 columns.}
 \source{
-\url{http://www.gadm.org/country} - downloaded for Turkey
+\url{http://www.gadm.org/country} - downloaded for Turkey.
+   Check \code{\link{clean_gadm}} function for cleaning of the data.
 }
 \usage{
 gadm_map

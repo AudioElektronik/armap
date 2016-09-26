@@ -40,5 +40,17 @@ clean_gadm <- function(file_path = system.file("exdata/TUR_adm2.rds",
   # Adding uskudar and silivri seperated. This is internal data in package.
   gadm <- rbind(gadm, uskudar_silivri)
 
+  # Malatya has a polygon for city center which is actaully a part of town
+  # Yesilyurt. Steps for creating merged yesilyurt is not present. Assigning
+  # from internal data
+  is_yesilyurt_merkez   <- (gadm$NAME_1 == "Malatya"
+                            & gadm$NAME_2 %in% c("Merkez", "Yeşilyurt"))
+
+  # Discard seperate yesilyurt and merkez
+  gadm <- gadm[!is_yesilyurt_merkez,]
+
+  # Adding the merged version
+  gadm <- rbind(gadm, yesilyurt)
+
   gadm
 }
