@@ -55,7 +55,6 @@ get_map <- function(level = c("town", "city", "country"),
     map <- merge_region(map, map$region)
   }
 
-  # Arge dokuman ekleme denemesi
   if (level == "country") {
     # Only country is left
     map <- gadm_map$country
