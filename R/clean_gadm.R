@@ -16,6 +16,7 @@ clean_gadm <- function(file_path = system.file("exdata/TUR_adm2.rds",
     # Variables from gadm could have white space,
     # new line etc at the end or front
     dplyr::mutate(NAME_1 = trimws(NAME_1)) %>%
+    dplyr::mutate(NAME_2 = trimws(NAME_2)) %>%
 
     # Changing city names
     dplyr::left_join(gadm_city_rename, by = c("NAME_1" = "gadm_city")) %>%
