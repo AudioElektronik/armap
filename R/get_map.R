@@ -68,3 +68,7 @@ get_map <- function(level = c("town", "city", "country"),
 
 #' @importFrom dplyr %>%
 NULL
+
+# test_fonksiyonu <- function(test) {
+#   print("deneme")
+# }
